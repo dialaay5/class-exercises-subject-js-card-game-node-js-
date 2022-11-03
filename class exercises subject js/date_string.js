@@ -14,7 +14,7 @@ function dateMonth(date){
 dateMonth()
 
 function random1(){
-    let randomNumber = Math.random()*10
+    let randomNumber = Math.floor((Math.random() * 10) + 1);
     randomNumber >= 5 ? console.log(randomNumber * 2) : console.log(randomNumber) ;}
 random1()
 

@@ -19,8 +19,8 @@ function random1(){
 random1()
 
 function strings(){
-    str1 = 'hello everyone'
-    str2= 'Hello'
+    str1 = 'everyone'
+    str2= 'One'
     str1.includes(str2) ? console.log(true) : console.log(false)
     str1.toLowerCase().includes(str2.toLowerCase()) ? console.log(true) : console.log(false)
     str1.toUpperCase().includes(str2.toUpperCase()) ? console.log(true) : console.log(false)

@@ -8,7 +8,8 @@
 // The check should include lowercase and uppercase 
 
 function dateMonth(date){
-    console.log(new Date().getMonth())
+    const month = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+    console.log(month[new Date().getMonth()])
 }
 dateMonth()
 

@@ -9,8 +9,8 @@ function cardGame(cardsValue){
         // between min (included) and max (included): (2-14)
         playerCard = Math.floor(Math.random()* 13) + 2   
         computerCard = Math.floor(Math.random()* 13) + 2
-        console.log(`${playerCard}`)
-        console.log(`${computerCard}`)
+        console.log(`${checkCard(playerCard)}`)
+        console.log(`${checkCard1(computerCard)}`)
 
         if (playerCard > computerCard){
             player_points++
@@ -23,8 +23,27 @@ function cardGame(cardsValue){
         else {console.log('teko')}
     
         if(player_points == 5 || computer_points == 5 ){
-            break; }
-        
+            break; }             
     }
+
+    
 }
 cardGame()
+
+function checkCard(playerCard){
+switch(playerCard){
+    case 11: return 'J';
+    case 12: return 'Q';
+    case 13: return 'K';
+    case 14: return 'A';
+    default: return playerCard ;}
+}
+function checkCard1(computerCard){
+switch(computerCard){
+    case 11: return 'J';
+    case 12: return 'Q';
+    case 13: return 'K';
+    case 14: return 'A';
+    default: return computerCard ;}
+}
+

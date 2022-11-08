@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>card game</title>
+    <style>
+       
+        .button {background-color: #686d69; color: rgb(237, 233, 233); padding: 10px 20px;
+                 ;font-size: 20px; border-radius: 50px; display:block; margin: 0 auto; }
+        .span {color: rgb(154, 1, 1); font-size: 30px; font-family:fantasy;}
+    </style>
+</head>
+<body style="background-color: rgb(61, 125, 52); text-align: center;" >
+
+    <h1 style="color: rgb(129, 24, 24); text-align: center; font-size: 50px">The Swap Card Game</h1>
+    <p style="text-align: center; font-size: 20px;">Click 'Play Game' Button To Start</p>
+    <button class="button" type="button" onclick="CardGame()">Play Game</button><br><br>
+    <div style="text-align: center; display:inline-flex; font-size: 25px">
+        <img id="imgPlayer" src="image/opp.jpg">
+         Player card
+    </div>
+    <div style="text-align: center; display:inline-flex; font-size: 25px">
+        <img id="imgComputer" src="image/opp.jpg" >
+         Computer card
+    </div>
+    <br><br><br>
+    <span class="span" id="result"></span>
+
+
+    <script>
+        const game_data = {player_points: 0 , 
+                           computer_points: 0,
+                           winner: undefined,
+                           playerCard: 0,
+                           computerCard: 0 ,
+                           game_over: false}
+        
+        
+        function randomcard(){
+            const card = Math.floor(Math.random()* 13) + 2 
+            return card;
+        }
+
+        function checkCard(card){
+          switch(card){
+            case 11: return 'J';
+                     break;
+            case 12: return 'Q';
+                     break;
+            case 13: return 'K';
+                     break;
+            case 14: return 'A';
+                     break;
+            default: return card;
+        }
+    }
+            
+        function CardGame(){
+            game_data.playerCard = randomcard()
+            game_data.computerCard = randomcard()
+            document.getElementById("imgPlayer").src = `image/${checkCard(game_data.playerCard)}.png `
+            document.getElementById("imgComputer").src = `image/${checkCard(game_data.computerCard)}.png `
+
+            switch(true){    
+            case game_data.computerCard > game_data.playerCard:
+                 game_data.computer_points++
+                 document.getElementById('result').innerHTML = ` COMPUTER SCORE = ${game_data.computer_points} <br/><br/>` 
+                 break;
+            case game_data.playerCard > game_data.computerCard:
+                 game_data.player_points++
+                 document.getElementById('result').innerHTML = ` PLAYER SCORE = ${game_data.player_points} <br/><br/>`
+                 break;
+            default:
+            document.getElementById('result').innerHTML = 'teko <br/><br/>'
+            }
+
+
+
+            if (game_data.player_points == 5){
+                document.getElementById('result').innerHTML ='the player has won the game..Congratulations !!!'
+                game_data.computer_points = 0
+                game_data.player_points = 0
+            }
+            else if( game_data.computer_points == 5){
+                document.getElementById('result').innerHTML ='the computer has won the game.. better luck next time !!!'
+                game_data.computer_points = 0
+                game_data.player_points = 0
+            }  
+        }
+        
+         
+ </script>
+</body>
+
+</html>
